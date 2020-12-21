@@ -12,6 +12,8 @@ import { ServerComponent } from "./servers/server/server.component";
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from "./app-routing.module";
+import { AuthGuard } from "./auth-guard.service";
+import { AuthService } from "./auth.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,11 @@ import { AppRoutingModule } from "./app-routing.module";
     FormsModule, 
     AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [
+    ServersService, 
+    AuthService, 
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
